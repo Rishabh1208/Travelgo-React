@@ -5,7 +5,7 @@ export default function EmptyCart() {
         <div className='container'>
             <div className="row">
                 <div className="col-10 mx-auto text-center text-title">
-                    <h1>your cart is currently empty</h1>
+                    <h1 style={{margin: "8rem"}}>you currently have no booking</h1>
                 </div>
             </div>
             

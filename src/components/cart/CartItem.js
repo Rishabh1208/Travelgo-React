@@ -9,7 +9,7 @@ export default function CartItem({item,value}) {
                 <img src={img} style={{width: "5rem", height: "5rem"}} className="img-fluid" alt="product"></img>
             </div>
             <div className="col-10 mx-auto col-lg-2">
-                <span className="d-lg-none">product: </span>
+                <span className="d-lg-none">place: </span>
                 {title}
             </div>
             <div className="col-10 mx-auto col-lg-2">
@@ -29,7 +29,7 @@ export default function CartItem({item,value}) {
                 </div>
             </div>
             <div className="col-10 mx-auto col-lg-2">
-                <strong>item total : ${total}</strong>
+                <strong> total : ₹{total}</strong>
             </div>
         </div>
     )
