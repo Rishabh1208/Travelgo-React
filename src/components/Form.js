@@ -17,18 +17,18 @@ class ContactForm extends React.Component {
             <div className="row">
                 <div className="col-lg-8">
                 <p><strong>Get in Touch</strong></p>
-                <form id="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
+                <form id="contact-form" onSubmit={this.handleSubmit.bind(this)}>
                 <div className="form-group">
                 <label htmlFor="name">First Name</label>
-                <input type="text" className="form-control" Placeholder="First Name" value={this.state.name} onChange={this.onNameChange.bind(this)} />
+                <input type="text" className="form-control" placeholder="First Name" value={this.state.name} onChange={this.onNameChange.bind(this)} />
                 </div>
                 <div className="form-group">
                 <label htmlFor="name">Last Name</label>
-                <input type="text" className="form-control" Placeholder="First Name" value={this.state.name} onChange={this.onNameChange.bind(this)} />
+                <input type="text" className="form-control" placeholder="First Name" value={this.state.name} onChange={this.onNameChange.bind(this)} />
                 </div>
                 <div className="form-group">
                 <label htmlFor="exampleInputEmail1">Email address</label>
-                <input type="email" className="form-control" Placeholder="Enter Email" aria-describedby="emailHelp" value={this.state.email} onChange={this.onEmailChange.bind(this)} />
+                <input type="email" className="form-control" placeholder="Enter Email" aria-describedby="emailHelp" value={this.state.email} onChange={this.onEmailChange.bind(this)} />
                 </div>
                 <div className="form-group">
                 <label htmlFor="message">Message</label>
