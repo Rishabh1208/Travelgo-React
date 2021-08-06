@@ -1,67 +1,80 @@
-import React, { Component } from 'react';
-import Styled from 'styled-components';
-import {Link} from 'react-router-dom';
-import {ProductConsumer} from '../Context';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import Styled from "styled-components";
+import { Link } from "react-router-dom";
+import { ProductConsumer } from "../Context";
+import PropTypes from "prop-types";
 
 export default class Product extends Component {
-    render() {
-        const {id, title, img, price, inCart} = this.props.product;
-        return (
-            <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3">
-                <div className="card">
-                    <ProductConsumer>
-                        { value => (
-                            <React.Fragment>
-                            <div className="img-container p-5" onClick={() => value.handleDetail(id)}>
-                                <Link to="/details">
-                                    <img src={img} alt="product" className="card-img-top" style={{height:"250px"}}></img>
-                                </Link>
-                                <button className="cart-btn" disabled={inCart?true:false}
-                                onClick={()=> { value.addToCart(id)
-                                            value.openModal(id)}}>
-                                {inCart ? (
-                                <p className="text-capitalize mb-0" disabled>
-                                    Booked
-                                </p>
-                                ): (<i className="fas fa-cart-plus"></i>)}
-                                </button>
-                                <p className="card-text" > Rating: 
-                                <span className="fa fa-star checked"></span>
-                                <span className="fa fa-star checked"></span>
-                                <span className="fa fa-star checked"></span>
-                                <span className="fa fa-star"></span>
-                                <span className="fa fa-star"></span>
-                                </p>
-                            
-                            </div>
-                            <div className="card-footer d-flex justify-content-between">
-                            <p className="align-self-center mb-0">{title}</p>
-                            <h5 className="text-blue font-italic mb-0">
-                                <span className="mr-1">₹</span>
-                                {price}
-                            </h5>
-                    
-                            </div>
-                            </React.Fragment>
-                        )}
-                    
-                    </ProductConsumer>
-
+  render() {
+    const { id, title, img, price, inCart } = this.props.product;
+    return (
+      <ProductWrapper className="col-9 mx-auto col-md-6 col-lg-3 my-3">
+        <div className="card">
+          <ProductConsumer>
+            {(value) => (
+              <React.Fragment>
+                <div
+                  className="img-container p-5"
+                  onClick={() => value.handleDetail(id)}
+                >
+                  <Link to="/details">
+                    <img
+                      src={img}
+                      alt="product"
+                      className="card-img-top"
+                      style={{ height: "250px" }}
+                    ></img>
+                  </Link>
+                  <button
+                    className="cart-btn"
+                    disabled={inCart ? true : false}
+                    onClick={() => {
+                      value.addToCart(id);
+                      value.openModal(id);
+                    }}
+                  >
+                    {inCart ? (
+                      <p className="text-capitalize mb-0" disabled>
+                        Booked
+                      </p>
+                    ) : (
+                      <i className="fas fa-cart-plus"></i>
+                    )}
+                  </button>
+                  <p className="card-text">
+                    {" "}
+                    Rating:
+                    <span className="fa fa-star checked"></span>
+                    <span className="fa fa-star checked"></span>
+                    <span className="fa fa-star checked"></span>
+                    <span className="fa fa-star"></span>
+                    <span className="fa fa-star"></span>
+                  </p>
                 </div>
-            </ProductWrapper>
-        )
-    }
+                <div className="card-footer d-flex justify-content-between">
+                  <p className="align-self-center mb-0">{title}</p>
+                  <h5 className="text-blue font-italic mb-0">
+                    <span className="mr-1">₹</span>
+                    {price}
+                  </h5>
+                </div>
+              </React.Fragment>
+            )}
+          </ProductConsumer>
+        </div>
+      </ProductWrapper>
+    );
+  }
 }
 Product.propTypes = {
-    product: PropTypes.shape({
-        id:PropTypes.number,
-        title: PropTypes.string,
-        img:PropTypes.string,
-        price: PropTypes.number,
-        inCart: PropTypes.bool
-    }).isRequired
-}
+  product: PropTypes.shape({
+    id: PropTypes.number,
+    title: PropTypes.string,
+    img: PropTypes.string,
+    price: PropTypes.number,
+    inCart: PropTypes.bool,
+  }).isRequired,
+};
 const ProductWrapper = Styled.div`
 .card {
     border-color: transparent;
@@ -114,5 +127,4 @@ const ProductWrapper = Styled.div`
     color: var(--mainBlue);
     cursor: pointer;
 }
-`
-
+`;
